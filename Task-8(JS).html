@@ -1,0 +1,161 @@
+<!DOCTYPE html>
+<html lang="">
+<head>
+    <meta charset="utf-8">
+    <title>Javascript Task 8 - Ashwin Ponnur</title>
+    <link href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet">
+    <style>
+        body {
+            margin: 0;
+            padding: 0;
+            background: linear-gradient(to bottom, #f4f2ad, #e6c9e6);
+            font-family: Arial, sans-serif;
+            text-align: center;
+        }
+
+        .error {
+            color: red;
+        }
+
+        .table-container {
+            max-width: 400px;
+            margin: 20px auto;
+            background-color: white;
+            padding: 10px;
+            border-radius: 5px;
+            border: 1px solid black;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
+        }
+
+        .table-container label {
+            font-weight: bold;
+        }
+
+        .table-container input[type="text"],
+        .table-container input[type="password"],
+        .table-container input[type="number"],
+        .table-container input[type="email"] {
+            width: 100%;
+            padding: 8px;
+            margin-top: 5px;
+            margin-bottom: 10px;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+        }
+
+        .table-container .error-message {
+            color: red;
+            text-align: left;
+        }
+
+        .submit-button {
+            margin-top: 10px;
+        }
+
+        .checkbox-label {
+            font-weight: normal;
+        }
+    </style>
+</head>
+<body>
+    <div class="container mt-5">
+        <div class="table-container">
+            <form>
+                <div class="form-group">
+                    <label for="name">Name</label>
+                    <input type="text" class="form-control" id="name" placeholder="Enter your name">
+                    <p class="error error-message" id="nameError"></p>
+                </div>
+                <div class="form-group">
+                    <label for="email">Email</label>
+                    <input type="email" class="form-control" id="email" placeholder="Enter your email">
+                    <p class="error error-message" id="emailError"></p>
+                </div>
+                <div class="form-group">
+                    <label for="password">Password</label>
+                    <input type="password" class="form-control" id="password" placeholder="Enter your password">
+                    <p class="error error-message" id="passwordError"></p>
+                </div>
+                <div class="form-group">
+                    <label for="rePassword">Re-enter Password</label>
+                    <input type="password" class="form-control" id="rePassword" placeholder="Re-enter your password">
+                    <p class="error error-message" id="rePasswordError"></p>
+                </div>
+                <div class="form-group">
+                    <label for="gender">Gender</label><br>
+                    <div class="form-check form-check-inline">
+                        <input class="form-check-input" type="radio" name="gender" id="male" value="male">
+                        <label class="form-check-label" for="male">Male</label>
+                    </div>
+                    <div class="form-check form-check-inline">
+                        <input class="form-check-input" type="radio" name="gender" id="female" value="female">
+                        <label class="form-check-label" for="female">Female</label>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label for="age">Age</label>
+                    <input type="number" class="form-control" id="age" placeholder="Enter your age">
+                    <p class="error error-message" id="ageError"></p>
+                </div>
+                <div class="form-group">
+                    <label for="phone">Phone Number</label>
+                    <input type="text" class="form-control" id="phone" placeholder="Enter your phone number">
+                    <p class="error error-message" id="phoneError"></p>
+                </div>
+                <div class="form-group">
+                    <label for="address">Address</label>
+                    <input type="text" class="form-control" id="address" placeholder="Enter your address">
+                    <p class="error error-message" id="addressError"></p>
+                </div>
+                <div class="form-group">
+                    <label for="languages">Languages known</label><br>
+                    <div class="form-check form-check-inline">
+                        <input class="form-check-input" type="checkbox" id="english" name="languages[]" value="english">
+                        <label class="form-check-label checkbox-label" for="english">English</label>
+                    </div>
+                    <div class="form-check form-check-inline">
+                        <input class="form-check-input" type="checkbox" id="kannada" name="languages[]" value="kannada">
+                        <label class="form-check-label checkbox-label" for="kannada">Kannada</label>
+                    </div>
+                    <div class="form-check form-check-inline">
+                        <input class="form-check-input" type="checkbox" id="hindi" name="languages[]" value="hindi">
+                        <label class="form-check-label checkbox-label" for="hindi">Hindi</label>
+                    </div>
+                    <div class="form-check form-check-inline">
+                        <input class="form-check-input" type="checkbox" id="telugu" name="languages[]" value="telugu">
+                        <label class="form-check-label checkbox-label" for="telugu">Telugu</label>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <div class="form-check">
+                        <input class="form-check-input" type="checkbox" id="declaration" name="declaration" value="declaration">
+                        <label class="form-check-label checkbox-label" for="declaration">Hereby I declare all the given details are true</label>
+                    </div>
+                </div>
+                <button type="button" class="btn btn-danger submit-button" onclick="validateForm()">Submit</button>
+            </form>
+        </div>
+    </div>
+    <script>
+        function validateForm() {
+            var email = document.getElementById("email").value;
+            var password = document.getElementById("password").value;
+            var rePassword = document.getElementById("rePassword").value;
+            document.getElementById("emailError").textContent = "";
+            document.getElementById("passwordError").textContent = "";
+            document.getElementById("rePasswordError").textContent = "";
+            var emailPattern = /^[a-zA-Z0-9._-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,4}$/;
+            if (!emailPattern.test(email)) {
+                document.getElementById("emailError").textContent = "Invalid email format.";
+                return false;
+            }
+            if (password !== rePassword) {
+                document.getElementById("passwordError").textContent = "Passwords do not match.";
+                document.getElementById("rePasswordError").textContent = "Passwords do not match.";
+                return false;
+            }
+            return true;
+        }
+    </script>
+</body>
+</html>

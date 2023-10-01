@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Pricing Page</title>
+    <!-- Include Bootstrap CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-4bw+/aepP/YC94hEpVNVgiZdgIC5+VKNBQNGCHeKRQN+PtmoHDEXuppvnDJzQIu9" crossorigin="anonymous">
+    
+    <style>
+        /* Custom Styles */
+        .pricing-heading {
+            background-color: #0c0c41;
+            color: #fff;
+            padding: 10px 0;
+        }
+        .pricing-heading h1 {
+            margin: 0;
+            font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+        }
+        .pricing-container {
+            text-align: center;
+            margin-top: 50px;
+        }
+        .pricing-box {
+            border: 1px solid #ccc;
+            padding: 20px;
+            border-radius: 5px;
+        }
+        .pricing-box h3 {
+            font-weight: bold;
+        }
+        /* Custom Navbar Styles */
+        .custom-navbar {
+            display: flex;
+            justify-content: flex-end;
+            list-style: none;
+            margin: 0;
+            padding: 0;
+        }
+        .custom-navbar li {
+            margin-left: 20px;
+        }
+        .custom-navbar a {
+            color: white;
+            text-decoration: none;
+        }
+    </style>
+</head>
+<body>
+    <div class="container-fluid pricing-heading">
+        <div class="row">
+            <div class="col-md-6">
+                <h1>Company Name</h1>
+            </div>
+            <div class="col-md-6">
+                <ul class="custom-navbar">
+                    <li><a href="#">Features</a></li>
+                    <li><a href="#">Enterprise</a></li>
+                    <li><a href="#">Support</a></li>
+                    <li><a href="#">Pricing</a></li>
+                    <li><a href="#">Sign Up</a></li>
+                </ul>
+            </div>
+        </div>
+    </div>
+
+    <div class="container pricing-container">
+        <h1>Pricing</h1>
+        <div class="row">
+            <div class="col-md-4">
+                <div class="pricing-box">
+                    <h3>Free</h3>
+                    <p>Basic features</p>
+                    <p>Limited support</p>
+                    <p>$0/month</p>
+                    <button class="btn btn-primary">Get Started</button>
+                </div>
+            </div>
+            <div class="col-md-4">
+                <div class="pricing-box">
+                    <h3>Pro</h3>
+                    <p>Advanced features</p>
+                    <p>Premium support</p>
+                    <p>$19/month</p>
+                    <button class="btn btn-primary">Get Started</button>
+                </div>
+            </div>
+            <div class="col-md-4">
+                <div class="pricing-box">
+                    <h3>Enterprise</h3>
+                    <p>Enterprise-level features</p>
+                    <p>24/7 dedicated support</p>
+                    <p>Contact us for pricing</p>
+                    <button class="btn btn-primary">Contact Us</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Include Bootstrap JavaScript (if needed) -->
+    <!--
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-C6RzsynM9kWDrMNeT87bh95OGNyZPhcTNXj1NW7RuBCsyN/o0jlpcV8Qyq46cDfL" crossorigin="anonymous"></script>
+    -->
+</body>
+</html>
